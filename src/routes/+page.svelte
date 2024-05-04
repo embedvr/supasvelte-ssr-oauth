@@ -1,8 +1,12 @@
 <script>
 	import { page } from '$app/stores';
-	let user = $page.data.user;
-	console.log(user);
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+{#if $page.data.user}
+	<p>User ID: {$page.data.user.id}</p>
+	<p>User Name: {$page.data.user.user_metadata.name}</p>
+	<a href="/auth/logout">Log out</a>
+{:else}
+	<p>You are not logged in</p>
+	<a href="/auth">Log in with Twitch</a>
+{/if}

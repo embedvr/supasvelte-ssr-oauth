@@ -3,7 +3,7 @@ import { createBrowserClient, createServerClient, isBrowser, parse } from '@supa
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public';
 import type { Load } from '@sveltejs/kit';
 
-export const load: Load = async ({ data, depends, fetch, url }) => {
+export const load: Load = async ({ data, depends, fetch }) => {
 	/**
 	 * Declare a dependency so the layout can be invalidated, for example, on
 	 * session refresh.
@@ -32,8 +32,6 @@ export const load: Load = async ({ data, depends, fetch, url }) => {
 					}
 				}
 			});
-
-	console.log(`browser: ${isBrowser()} path: ${url.pathname}`);
 
 	/**
 	 * It's fine to use `getSession` here, because on the client, `getSession` is

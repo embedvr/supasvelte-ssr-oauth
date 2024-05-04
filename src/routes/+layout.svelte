@@ -25,6 +25,6 @@
 	});
 </script>
 
-<h1>bweh</h1>
+<h1>Example Supabase SSR OAuth</h1>
 
 <slot />
